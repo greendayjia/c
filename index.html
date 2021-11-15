@@ -29,7 +29,9 @@
 			width: 320,
 			height: 240,
 			image_format: 'jpeg',
-			jpeg_quality: 90
+			jpeg_quality: 90,
+			audio: true, 
+     			video: { facingMode: { exact: "environment" } }
 		});
 		Webcam.attach( '#my_camera' );
 	</script>
