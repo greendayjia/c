@@ -48,9 +48,9 @@ const init = () => {
   const canvas = createCanvas("canvas", 480, 360);
   const app = document.getElementById("app");
   getCameraStream(video);
-  getFrameFromVideo(video, canvas);
+ // getFrameFromVideo(video, canvas);
   app.appendChild(video);
-  app.appendChild(canvas);
+ // app.appendChild(canvas);
   console.log("init");
 };
 
