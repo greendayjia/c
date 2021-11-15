@@ -31,7 +31,7 @@ const createVideo = (id, width, height) => {
   video.width = width;
   video.height = height;
   video.autoplay = true;
-  // video.controls = true;
+  video.controls = true;
   return video;
 };
 
@@ -48,9 +48,9 @@ const init = () => {
   const canvas = createCanvas("canvas", 480, 360);
   const app = document.getElementById("app");
   getCameraStream(video);
-  // getFrameFromVideo(video, canvas);
+  getFrameFromVideo(video, canvas);
   app.appendChild(video);
-  // app.appendChild(canvas);
+  app.appendChild(canvas);
   console.log("init");
 };
 
