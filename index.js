@@ -1,11 +1,16 @@
 
-const constraints = {
-  audio: false,
-  video: {
-    facingMode: "environment"
-  }
-};
+var dir ="environment";
 
+function video(){
+  dir=(dir=="environment")?"user":"environment";
+  // constraints = {
+  //   audio: false,
+  //   video: {
+  //     facingMode: dir
+  //   }
+  // };
+  document.getElementById("app").onload = init();
+}
 const getFrameFromVideo = (video, canvas) => {
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -18,11 +23,18 @@ const getFrameFromVideo = (video, canvas) => {
 };
 
 const getCameraStream = video => {
+  var constraints = {
+    audio: false,
+    video: {
+      facingMode: dir
+    }
+  };
   navigator.mediaDevices
     .getUserMedia(constraints)
     .then(function success(stream) {
       video.srcObject = stream;
     });
+    console.log(constraints)
 };
 
 const createVideo = (id, width, height) => {
@@ -45,10 +57,11 @@ const createCanvas = (id, width, height) => {
 
 const init = () => {
   const video = createVideo("vid", 480, 360);
-  const canvas = createCanvas("canvas", 480, 360);
+  // const canvas = createCanvas("canvas", 480, 360);
   const app = document.getElementById("app");
   getCameraStream(video);
  // getFrameFromVideo(video, canvas);
+  app.innerHTML="";
   app.appendChild(video);
  // app.appendChild(canvas);
   console.log("init");

@@ -2,13 +2,32 @@
 <html>
 
 <head>
-	<title>Parcel Sandbox</title>
+	<title>video</title>
 	<meta charset="UTF-8" />
+  <style>
+    .btn{
+      font-size:35px;
+      cursor:pointer;
+      /* position: relative; */
+    }
+
+    .rotate{
+      transform: rotate(180deg) translate(40px,-23px);
+
+      display: inline-block;
+      /* position: absolute;
+      top:30px; */
+    }
+  </style>
 </head>
 
 <body>
 	<div id="app"></div>
-
+<br>
+<span class="btn" onclick="video()">
+&#10554;
+<div class="rotate">&#10554;</div>
+</span>
 	<script src="index.js">
 	</script>
 </body>
